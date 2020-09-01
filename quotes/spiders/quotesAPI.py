@@ -8,7 +8,7 @@ class QuotesapiSpider(scrapy.Spider):
     start_urls = ['http://quotes.toscrape.com/api/quotes?page=1']
 
     def parse(self, response):
-        resp = json.loads(response.body)
+        resp = json.loads(response.body) #Json.Loads will convert the JSON object from API into a Python Dict
         quotes = resp.get('quotes')
         for quote in quotes:
             yield {
